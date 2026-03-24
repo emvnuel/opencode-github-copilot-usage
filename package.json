@@ -3,13 +3,13 @@
   "version": "0.1.0",
   "description": "OpenCode plugin to track GitHub Copilot premium request usage",
   "author": "Emanuel Cerqueira",
-  "homepage": "https://github.com/emanuelcerqueira/opencode-github-copilot-usage#readme",
+  "homepage": "https://github.com/emvnuel/opencode-github-copilot-usage#readme",
   "bugs": {
-    "url": "https://github.com/emanuelcerqueira/opencode-github-copilot-usage/issues"
+    "url": "https://github.com/emvnuel/opencode-github-copilot-usage/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/emanuelcerqueira/opencode-github-copilot-usage.git"
+    "url": "git+https://github.com/emvnuel/opencode-github-copilot-usage.git"
   },
   "type": "module",
   "main": "./dist/index.js",
