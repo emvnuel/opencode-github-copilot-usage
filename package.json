@@ -1,0 +1,57 @@
+{
+  "name": "opencode-copilot-usage",
+  "version": "0.1.0",
+  "description": "OpenCode plugin to track GitHub Copilot premium request usage",
+  "author": "Emanuel Cerqueira",
+  "homepage": "https://github.com/emanuelcerqueira/opencode-github-copilot-usage#readme",
+  "bugs": {
+    "url": "https://github.com/emanuelcerqueira/opencode-github-copilot-usage/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/emanuelcerqueira/opencode-github-copilot-usage.git"
+  },
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE",
+    "examples"
+  ],
+  "scripts": {
+    "clean": "rm -rf dist",
+    "build": "tsup",
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "npm run typecheck && npm run build"
+  },
+  "keywords": [
+    "opencode",
+    "plugin",
+    "copilot",
+    "github",
+    "usage"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@opencode-ai/plugin": "^1.3.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.9",
+    "tsup": "^8.5.0",
+    "typescript": "^5.8.2"
+  }
+}
