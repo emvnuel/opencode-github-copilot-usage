@@ -10,15 +10,9 @@ import type { CopilotUsageSnapshot, UsageState } from "./types"
 
 const SERVICE = "opencode-copilot-usage"
 
-function isCopilotMessage(event: unknown): boolean {
-  const info = (event as { properties?: { info?: { role?: string; providerID?: string; model?: { providerID?: string; modelID?: string } } } })
-    .properties?.info
-  const role = info?.role
-  if (role !== "assistant") return false
-
-  const provider = String(info?.providerID ?? info?.model?.providerID ?? "").toLowerCase()
-  const model = String(info?.model?.modelID ?? "").toLowerCase()
-  return provider.includes("github") || provider.includes("copilot") || model.includes("copilot")
+function isUserMessage(event: unknown): boolean {
+  const role = (event as { properties?: { info?: { role?: string } } }).properties?.info?.role
+  return role === "user"
 }
 
 function shouldRefreshOnEvent(type: string): boolean {
@@ -165,7 +159,7 @@ export const CopilotUsagePlugin: Plugin = async ({ client, directory }) => {
 
   return {
     event: async ({ event }) => {
-      if (event.type === "message.updated" && isCopilotMessage(event)) {
+      if (event.type === "message.updated" && isUserMessage(event)) {
         const messageID = event.properties.info.id
         if (!countedMessages.has(messageID)) {
           countedMessages.add(messageID)

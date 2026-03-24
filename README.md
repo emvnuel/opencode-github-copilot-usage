@@ -7,6 +7,7 @@ OpenCode plugin to track GitHub Copilot premium request usage, persist monthly s
 - Fetches Copilot premium usage from GitHub internal endpoint `GET /copilot_internal/user` (primary source)
 - Falls back to GitHub billing summary endpoint when internal endpoint is unavailable
 - Falls back to local estimate from OpenCode events when API data is unavailable
+- Shows a per-request info toast for each user message (enabled by default)
 - Persists state at `.opencode/state/copilot-usage.json`
 - Emits warn toasts at configured thresholds (`75%`, `90%`, `100%` by default)
 - Provides custom tool `copilot_usage_status` for on-demand usage status
