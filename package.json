@@ -1,6 +1,6 @@
 {
   "name": "opencode-copilot-usage",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "OpenCode plugin to track GitHub Copilot premium request usage",
   "author": "Emanuel Cerqueira",
   "homepage": "https://github.com/emvnuel/opencode-github-copilot-usage#readme",
